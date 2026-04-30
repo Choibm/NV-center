@@ -124,6 +124,10 @@ green is adaptive MLE(Maximum Likelihood Estimation) $\rightarrow$ Improved
 
 <div style = "padding-left: 40px;">
 
+> Blue : non-adaptive (like shield), doesn't think about the timing of photon
+> Orange : adaptive but don't stop, timing of photon is considered
+> Green : if the algorithm gets certainty of the state it stops 
+
 (a) : Didn't multiply the prior (doesn't think of the first state that is 25:75, when 594nm is applied NV ionizes to 25:75 in 220ms)
 (b) : multiply the prior (Bayesian inferance)
 
@@ -133,6 +137,51 @@ Why uncontinuous? $\rightarrow$
 </div>
 
 ### Organize
+
+Fixed $t_r$ has a problem that if the photon had emitted fast there are wasted time that degrades the sensitivity. $\rightarrow$ Realtime calculating algorithm using bayesian inferance to stop faster
+(In this paper they didn't use the prior, the adaptive is robust enough)
+![](images/2026-04-30-09-22-28.png)
+
+
 #### 1. $\gamma_+$, $\gamma_-$ measuring
+![](images/2026-04-29-17-32-37.png)
 30s trajectory, 10ms bin $\rightarrow$ Histogram 
-Two poisson distrubution fitting than get the value 
+Two poisson distrubution fitting than get the value  $\gamma_+$ = 720Hz, $\gamma_-$ = 50Hz, Get the threshold
+
+#### 2.  $\Gamma_+$, $\Gamma_-$ measuring
+![](images/2026-04-29-17-33-07.png)
+Fit and get the value (same as 1)
+
+#### 3. Make the parameters to matrix
+$$R(z) = L - K + zK$$
+
+<center>
+
+(To track the photon count, composed with the parameters at 1, 2)
+
+<br>
+
+$$M(\delta n) = \frac{1}{\delta n!} \frac{d^{\delta n}}{dz^{\delta n}} e^{R(z)\delta t} \bigg|_{z=0}$$
+
+(update matrix when the photons were detected $\delta$n times)
+
+</center>
+
+#### 4. Model certification
+
+
+<br><br><br><br><br><br>
+
+의문들
+1. 220ms 쬐면 다 이온화되는게 맞음?? 파워에 따라 다르긴 하겠지만
+2. tr이 계속 바뀌어도 됨?
+3. 아직까지 불연속점이 나오는 이유를 모르겠다
+4. maximal tf/T 어케 구하는거지? -> 수식적으로 그러하다~ 정도로
+5. bin의 설계 기준?? 10ms.. 이온화를 많이 안 시킴... 광자는 충분히 모아야함 그런거겠지뭐
+6. 왜 30초?
+
+
+우리 실험
+1. SCC 노란색 레이저를 쏘겠지 (30s, 그건 그 NV의 rate들을 뽑기 위함)
+2. 그러면 NV가 그걸 받고 광자를 내뿜음
+3. 
