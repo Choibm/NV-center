@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1100" viewBox="0 0 1800 1100" role="img" aria-labelledby="title desc">
+  <title id="title">Digital micromirror device schematic</title>
+  <desc id="desc">Paper-style figure showing DMD micromirror array, incident illumination, ON and OFF tilted mirror states, projection path, dump path, and a single-pixel inset.</desc>
+  <defs>
+    <marker id="arrow-blue" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 14 7 L 0 14 z" fill="#2468b2"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 14 7 L 0 14 z" fill="#14865d"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 14 7 L 0 14 z" fill="#b94343"/>
+    </marker>
+    <marker id="arrow-gray" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#4b5563"/>
+    </marker>
+    <linearGradient id="mirrorGrad" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f7fbff"/>
+      <stop offset="0.48" stop-color="#b8c7d8"/>
+      <stop offset="1" stop-color="#6e8297"/>
+    </linearGradient>
+    <linearGradient id="chipGrad" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#263342"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <filter id="softShadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.16"/>
+    </filter>
+    <style>
+      .bg { fill: #fbfbf8; }
+      .panel { fill: #ffffff; stroke: #d6d8dc; stroke-width: 2; rx: 18; }
+      .chip { fill: url(#chipGrad); stroke: #0f172a; stroke-width: 3; }
+      .mirror { fill: url(#mirrorGrad); stroke: #41556c; stroke-width: 2.2; }
+      .mirror-on { stroke: #14865d; }
+      .mirror-off { stroke: #b94343; }
+      .axis { stroke: #6b7280; stroke-width: 2; stroke-dasharray: 8 8; fill: none; }
+      .beam-in { stroke: #2468b2; stroke-width: 10; fill: none; stroke-linecap: round; marker-end: url(#arrow-blue); }
+      .beam-on { stroke: #14865d; stroke-width: 10; fill: none; stroke-linecap: round; marker-end: url(#arrow-green); }
+      .beam-off { stroke: #b94343; stroke-width: 8; fill: none; stroke-linecap: round; stroke-dasharray: 16 14; marker-end: url(#arrow-red); }
+      .callout { stroke: #4b5563; stroke-width: 2.2; fill: none; marker-end: url(#arrow-gray); }
+      .label { font: 34px Arial, Helvetica, sans-serif; fill: #111827; }
+      .label-small { font: 25px Arial, Helvetica, sans-serif; fill: #1f2937; }
+      .caption { font: 22px Arial, Helvetica, sans-serif; fill: #4b5563; }
+      .panel-title { font: 38px Arial, Helvetica, sans-serif; font-weight: 700; fill: #111827; }
+      .tag { font: 23px Arial, Helvetica, sans-serif; font-weight: 700; letter-spacing: 0.4px; }
+      .tag-on { fill: #14865d; }
+      .tag-off { fill: #b94343; }
+      .device-line { stroke: #aeb7c2; stroke-width: 1.4; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1800" height="1100"/>
+
+  <text x="90" y="88" class="panel-title">Digital micromirror device (DMD): binary spatial light modulation</text>
+  <text x="90" y="126" class="caption">Each pixel is a tilting aluminum micromirror that directs light toward the optical path (ON) or into a beam dump (OFF).</text>
+
+  <rect x="80" y="170" width="1120" height="790" class="panel" filter="url(#softShadow)"/>
+  <rect x="1250" y="170" width="470" height="790" class="panel" filter="url(#softShadow)"/>
+
+  <text x="125" y="232" class="label">A. Micromirror array and light routing</text>
+
+  <g transform="translate(245 450)">
+    <polygon points="0,170 590,0 930,260 335,475" class="chip"/>
+    <g opacity="0.82">
+      <line x1="80" y1="155" x2="410" y2="420" class="device-line"/>
+      <line x1="170" y1="130" x2="505" y2="390" class="device-line"/>
+      <line x1="260" y1="105" x2="600" y2="360" class="device-line"/>
+      <line x1="350" y1="80" x2="695" y2="330" class="device-line"/>
+      <line x1="440" y1="55" x2="790" y2="300" class="device-line"/>
+      <line x1="535" y1="35" x2="880" y2="270" class="device-line"/>
+      <line x1="125" y1="120" x2="710" y2="-45" class="device-line"/>
+      <line x1="210" y1="185" x2="800" y2="8" class="device-line"/>
+      <line x1="295" y1="250" x2="890" y2="70" class="device-line"/>
+      <line x1="380" y1="315" x2="970" y2="140" class="device-line"/>
+    </g>
+
+    <g>
+      <polygon points="185,132 270,108 335,158 250,185" class="mirror mirror-on"/>
+      <polygon points="285,205 370,179 438,230 352,258" class="mirror mirror-off"/>
+      <polygon points="386,278 474,249 544,302 454,331" class="mirror mirror-on"/>
+      <polygon points="488,351 578,319 650,373 558,405" class="mirror mirror-off"/>
+      <polygon points="324,92 411,68 479,118 390,145" class="mirror mirror-off"/>
+      <polygon points="425,165 514,138 584,189 494,218" class="mirror mirror-on"/>
+      <polygon points="526,238 617,209 689,262 596,292" class="mirror mirror-on"/>
+      <polygon points="628,310 721,279 795,333 700,365" class="mirror mirror-off"/>
+      <polygon points="464,54 554,29 624,80 532,108" class="mirror mirror-on"/>
+      <polygon points="566,126 658,98 730,151 636,180" class="mirror mirror-off"/>
+      <polygon points="668,199 762,168 836,222 740,253" class="mirror mirror-on"/>
+      <polygon points="770,270 866,237 942,292 844,326" class="mirror mirror-off"/>
+    </g>
+  </g>
+
+  <path d="M 205 315 C 325 378, 420 435, 565 520" class="beam-in"/>
+  <text x="130" y="295" class="label-small" fill="#2468b2">incident illumination</text>
+
+  <path d="M 710 555 C 830 500, 945 420, 1090 310" class="beam-on"/>
+  <text x="910" y="292" class="label-small" fill="#14865d">ON-state light to projection optics</text>
+  <circle cx="1114" cy="292" r="36" fill="none" stroke="#14865d" stroke-width="5"/>
+  <line x1="1088" y1="318" x2="1140" y2="266" stroke="#14865d" stroke-width="5"/>
+  <line x1="1088" y1="266" x2="1140" y2="318" stroke="#14865d" stroke-width="5"/>
+
+  <path d="M 692 610 C 805 682, 935 744, 1090 815" class="beam-off"/>
+  <text x="860" y="850" class="label-small" fill="#b94343">OFF-state light to beam dump</text>
+  <g transform="translate(1108 765)">
+    <rect x="0" y="0" width="80" height="92" fill="#2f333a" stroke="#111827" stroke-width="3"/>
+    <path d="M 12 16 L 68 76 M 68 16 L 12 76" stroke="#79808a" stroke-width="4"/>
+  </g>
+
+  <path d="M 700 250 L 705 515" class="callout"/>
+  <text x="620" y="235" class="label-small">tilted micromirror pixels</text>
+  <text x="350" y="900" class="caption">A CMOS SRAM cell under each mirror selects one of two stable tilt states.</text>
+
+  <text x="1295" y="232" class="label">B. Single pixel state</text>
+
+  <g transform="translate(1320 310)">
+    <line x1="70" y1="230" x2="350" y2="230" class="axis"/>
+    <rect x="52" y="235" width="315" height="36" fill="#233041" rx="8"/>
+    <rect x="72" y="276" width="275" height="70" fill="#e8edf3" stroke="#9ba8b5" stroke-width="2" rx="8"/>
+    <text x="112" y="320" class="caption">CMOS address cell</text>
+
+    <g transform="translate(96 169) rotate(-12 110 38)">
+      <rect x="0" y="0" width="220" height="76" rx="10" class="mirror mirror-on"/>
+      <line x1="24" y1="17" x2="196" y2="17" stroke="#ffffff" stroke-opacity="0.6" stroke-width="4"/>
+      <text x="67" y="50" class="tag tag-on">ON</text>
+    </g>
+
+    <g transform="translate(96 40) rotate(12 110 38)" opacity="0.38">
+      <rect x="0" y="0" width="220" height="76" rx="10" class="mirror mirror-off"/>
+      <text x="63" y="50" class="tag tag-off">OFF</text>
+    </g>
+
+    <path d="M 206 115 A 118 118 0 0 1 207 230" fill="none" stroke="#6b7280" stroke-width="3" stroke-dasharray="7 7"/>
+    <text x="235" y="173" class="caption">tilt: plus/minus 12 deg</text>
+
+    <path d="M 15 56 L 130 128" class="beam-in"/>
+    <path d="M 225 160 L 385 72" class="beam-on"/>
+    <path d="M 226 175 L 380 278" class="beam-off"/>
+    <text x="8" y="34" class="caption" fill="#2468b2">input</text>
+    <text x="292" y="56" class="caption" fill="#14865d">image</text>
+    <text x="286" y="306" class="caption" fill="#b94343">dump</text>
+  </g>
+
+  <g transform="translate(1295 730)">
+    <rect x="0" y="0" width="380" height="150" rx="12" fill="#f8fafc" stroke="#d6d8dc" stroke-width="2"/>
+    <text x="24" y="42" class="label-small">Binary amplitude control</text>
+    <circle cx="42" cy="83" r="13" fill="#14865d"/>
+    <text x="70" y="91" class="caption">mirror ON: pixel contributes light</text>
+    <circle cx="42" cy="123" r="13" fill="#b94343"/>
+    <text x="70" y="131" class="caption">mirror OFF: pixel is dark</text>
+  </g>
+
+  <text x="88" y="1030" class="caption">Figure. Operating principle of a DMD spatial light modulator. Mirror tilt converts binary electronic states into two optical paths.</text>
+</svg>
